@@ -11,12 +11,12 @@ import lombok.Data;
 
 @Data
 public class User {
-    private String id;
+    private Integer id;
   @NotBlank
   @Size(min = 3, max = 20)
   private String username;
    @Size(min = 1)
-   List<UserRow> roles = new ArrayList<>();
+   private List<UserRow> roles = new ArrayList<>();
    @NotBlank
    private String language;
 }

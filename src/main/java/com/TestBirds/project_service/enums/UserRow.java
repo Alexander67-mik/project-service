@@ -8,14 +8,14 @@ public enum UserRow {
     CLIENT("ROLE_CLIENT");
 
 
-    private final String role;
+    private final String roleName;
 
-    UserRow(String role){
-        this.role = role;
+    UserRow(String roleName){
+        this.roleName = roleName;
     }
 
-    public String getRole(){
-        return role;
+    public String getRoleName(){
+        return roleName;
     }
 
 }

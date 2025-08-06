@@ -23,6 +23,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	compileOnly 'org.projectlombok:lombok:8.14' // For main source set
+	annotationProcessor 'org.projectlombok:lombok:8.14' // For annotation processing
+
+	// For test source set if needed
+	testCompileOnly 'org.projectlombok:lombok:8.14'
+	testAnnotationProcessor 'org.projectlombok:lombok:8.14'
 }
 
 tasks.named('test') {
