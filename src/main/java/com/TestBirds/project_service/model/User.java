@@ -1,0 +1,20 @@
+package com.TestBirds.project_service.model;
+
+import com.TestBirds.project_service.enums.UserRow;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+public class User {
+    private String id;
+  @NotBlank
+  @Size(min = 3, max = 20)
+  private String username;
+   @Size(min = 1)
+   List<UserRow> roles = new ArrayList<>();
+   @NotBlank
+     private String language;
+}

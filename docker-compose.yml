@@ -1,0 +1,10 @@
+services:
+  app:
+    tty: true
+    network_mode: host
+    image: swr.eu-de.otc.t-systems.com/testbirds-nest/project-service:v1.0.0
+    command: tail -f /dev/null
+    volumes:
+      - ./:/var/www/application
+    ports:
+      - 8000:8000
