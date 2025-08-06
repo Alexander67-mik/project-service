@@ -6,6 +6,7 @@ import com.TestBirds.project_service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
@@ -15,7 +16,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     @PostMapping("/users")
-    public User createAction(@Valid User user){
+    public User createAction(@Valid @RequestBody User user){
         return userService.save(user);
     }
 

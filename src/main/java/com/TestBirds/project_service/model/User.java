@@ -7,7 +7,9 @@ import java.util.List;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 
+@Data
 public class User {
     private String id;
   @NotBlank
@@ -16,5 +18,5 @@ public class User {
    @Size(min = 1)
    List<UserRow> roles = new ArrayList<>();
    @NotBlank
-     private String language;
+   private String language;
 }
