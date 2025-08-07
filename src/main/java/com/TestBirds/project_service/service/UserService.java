@@ -51,4 +51,7 @@ public class UserService implements IService<User> {
         }
         return users.stream().filter(u -> u.getUsername().equals(userName)).toList();
     }
+    public void deleteOne(User del){
+
+    }
 }
