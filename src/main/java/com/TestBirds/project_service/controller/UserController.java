@@ -1,6 +1,7 @@
 package com.TestBirds.project_service.controller;
 
 import com.TestBirds.project_service.dto.UserCreate;
+import com.TestBirds.project_service.dto.UserUpdate;
 import com.TestBirds.project_service.model.User;
 import com.TestBirds.project_service.service.UserService;
 
@@ -29,20 +30,17 @@ public class UserController {
     private UserService userService;
     @PostMapping()
     public ResponseEntity<User> createAction(@Valid @RequestBody UserCreate userCreate) {
-        User newUser = userService.save(user);
+        User newUser = userService.createOne(userCreate);
         return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
     @GetMapping("/{id}")
     public ResponseEntity<User> getOneAction(@PathVariable Integer id) {
-        return ResponseEntity.ok(findOneOr404(id));
+        return ResponseEntity.status(HttpStatus.OK).body(findOneOr404(id));
     }
     @PatchMapping("/{id}")
-    public ResponseEntity<User> updateOneAction(@PathVariable Integer id, @RequestBody User data){
+    public ResponseEntity<User> updateOneAction(@PathVariable Integer id, @RequestBody UserUpdate data){
         User foundUser = findOneOr404(id);
-        foundUser.setUsername(data.getUsername());
-        foundUser.setLanguage(data.getLanguage());
-        foundUser.setRoles(data.getRoles());
-        User updatedUser = userService.updateOne(foundUser);
+        User updatedUser = userService.updateOne(data, foundUser);
         return ResponseEntity.ok(updatedUser);
     }
     @GetMapping()

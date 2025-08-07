@@ -1,18 +1,23 @@
 package com.TestBirds.project_service.service;
 
 import com.TestBirds.project_service.dto.UserCreate;
+import com.TestBirds.project_service.dto.UserUpdate;
 import com.TestBirds.project_service.enums.UserRow;
+import com.TestBirds.project_service.mapper.UserMapper;
 import com.TestBirds.project_service.model.User;
 
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserService implements IService<User> {
+public class UserService {
 
-    public User save( User gen) {
+    private UserMapper userMapper = UserMapper.INSTANCE;
+
+    public User save(User gen) {
         return gen;
     }
     public User getOne(int id){
@@ -23,12 +28,16 @@ public class UserService implements IService<User> {
         newUser.setId(id);
         newUser.setUsername("Alexander");
         newUser.setLanguage("bg");
-        newUser.setRoles(List.of(UserRow.ADMIN, UserRow.USER));
+        List<UserRow> roles = new ArrayList<>();
+        roles.add(UserRow.ADMIN);
+        newUser.setRoles(roles);
         return newUser;
 
     }
-    public User updateOne(User obj){
-        return obj;
+    public User updateOne(UserUpdate data, User user){
+        userMapper.mapUpdate(data, user);
+        save(user);
+        return user;
     }
     public List<User> findAll(String userName){
         User user1 = new User();
@@ -57,6 +66,9 @@ public class UserService implements IService<User> {
     }
 
     public User createOne(UserCreate cr){
-        return null;
+        User user = userMapper.mapCreate(cr);
+        save(user);
+        return user;
     }
+
 }
