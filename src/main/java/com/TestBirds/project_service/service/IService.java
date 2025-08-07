@@ -8,5 +8,6 @@ public interface IService<T>  {
      public T updateOne(T obj);
      public List<T> findAll(String userName);
      public void deleteOne(T obj);
+     <V> T createOne(V cr);
 
 }

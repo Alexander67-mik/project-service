@@ -1,5 +1,6 @@
 package com.TestBirds.project_service.controller;
 
+import com.TestBirds.project_service.dto.UserCreate;
 import com.TestBirds.project_service.model.User;
 import com.TestBirds.project_service.service.UserService;
 
@@ -27,7 +28,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     @PostMapping()
-    public ResponseEntity<User> createAction(@Valid @RequestBody User user) {
+    public ResponseEntity<User> createAction(@Valid @RequestBody UserCreate userCreate) {
         User newUser = userService.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
