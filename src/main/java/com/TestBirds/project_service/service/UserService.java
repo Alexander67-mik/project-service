@@ -1,5 +1,6 @@
 package com.TestBirds.project_service.service;
 
+import com.TestBirds.project_service.dto.UserCreate;
 import com.TestBirds.project_service.enums.UserRow;
 import com.TestBirds.project_service.model.User;
 
@@ -53,5 +54,9 @@ public class UserService implements IService<User> {
     }
     public void deleteOne(User del){
 
+    }
+
+    public User createOne(UserCreate cr){
+        return null;
     }
 }
