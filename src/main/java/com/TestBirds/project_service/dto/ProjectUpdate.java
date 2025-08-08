@@ -15,7 +15,7 @@ public class ProjectUpdate {
     @Size(min = 5, max = 50)
     private String title;
     private  String iD;
-    @Size(min = 20)
+    @Size(min = 5)
     private String description;
     @NotNull
     private boolean active;

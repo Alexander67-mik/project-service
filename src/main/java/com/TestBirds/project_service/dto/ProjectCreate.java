@@ -14,11 +14,11 @@ public class ProjectCreate {
     @NotBlank
     @Size(min = 5, max = 50)
     private String title;
-    private  String iD;
-    @Size(min = 20)
+    private  String id;
+    @Size(min = 5)
     private String description;
     @NotNull
     private boolean active;
     @NotNull
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 }

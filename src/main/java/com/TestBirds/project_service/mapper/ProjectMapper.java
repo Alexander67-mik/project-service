@@ -1,6 +1,7 @@
 package com.TestBirds.project_service.mapper;
 
 import com.TestBirds.project_service.dto.ProjectCreate;
+import com.TestBirds.project_service.dto.ProjectUpdate;
 import com.TestBirds.project_service.model.Project;
 
 import org.mapstruct.CollectionMappingStrategy;
@@ -13,6 +14,6 @@ import org.mapstruct.factory.Mappers;
 public interface ProjectMapper {
     ProjectMapper INSTANCE = Mappers.getMapper(ProjectMapper.class);
     Project proCreate(ProjectCreate projectCreate);
-    void  proUpdate(ProjectCreate projectCreate, @MappingTarget Project project);
+    void  proUpdate(ProjectUpdate projectUpdate, @MappingTarget Project project);
 
 }
