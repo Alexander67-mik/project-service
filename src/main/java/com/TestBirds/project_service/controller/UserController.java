@@ -29,7 +29,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     @PostMapping()
-    public ResponseEntity<User> createAction(@Valid @RequestBody UserCreate userCreate) {
+    public ResponseEntity<User> createOneAction(@Valid @RequestBody UserCreate userCreate) {
         User newUser = userService.createOne(userCreate);
         return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
@@ -44,7 +44,7 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
     @GetMapping()
-    public ResponseEntity<List<User>> findAllAction(  @RequestParam(required = false) String userName){
+    public ResponseEntity<List<User>> findAllAction(  @RequestParam(required = true) String userName){
         List<User> users = userService.findAll(userName);
         return ResponseEntity.ok(users);
     }

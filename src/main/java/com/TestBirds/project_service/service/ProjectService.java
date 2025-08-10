@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 public class ProjectService  {
@@ -61,7 +62,7 @@ public class ProjectService  {
         project3.setDescription("opisanie za tretoto");
         project3.setActive(true);
         project3.setCreatedAt(LocalDateTime.now());
-        return List.of(project1, project2, project3).stream().filter(p -> p.getTitle().equals(title)).toList();
+        return Stream.of(project1, project2, project3).filter(p -> p.getTitle().equals(title)).toList();
     }
 
     public Project pCreate(ProjectCreate pr){
