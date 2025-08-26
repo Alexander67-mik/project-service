@@ -8,3 +8,15 @@ services:
       - ./:/var/www/application
     ports:
       - 8000:8000
+  mysqldb:
+    network_mode: host
+    image: mysql:8.1
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+  mongodb:
+    network_mode: host
+    image: mongo:4.0
+    ports:
+        - 27017:27017
